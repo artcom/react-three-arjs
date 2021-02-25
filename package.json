@@ -1,0 +1,25 @@
+{
+  "name": "react-three-arjs",
+  "version": "0.1.0",
+  "description": "AR.js with react-three-fiber ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artcom/react-three-arjs.git"
+  },
+  "keywords": [
+    "react",
+    "react-three-fiber",
+    "ar.js",
+    "ar",
+    "three"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artcom/react-three-arjs/issues"
+  },
+  "homepage": "https://github.com/artcom/react-three-arjs#readme"
+}
