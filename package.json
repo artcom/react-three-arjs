@@ -1,10 +1,14 @@
 {
-  "name": "react-three-arjs",
+  "name": "@artcom/react-three-arjs",
   "version": "0.1.0",
   "description": "AR.js with react-three-fiber ",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib/",
+    "src/"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir lib --source-maps"
   },
   "repository": {
     "type": "git",
@@ -21,5 +25,21 @@
   "bugs": {
     "url": "https://github.com/artcom/react-three-arjs/issues"
   },
-  "homepage": "https://github.com/artcom/react-three-arjs#readme"
+  "homepage": "https://github.com/artcom/react-three-arjs#readme",
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-three-fiber": "^5.3.18",
+    "three": "^0.126.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-three-fiber": "^5.3.19",
+    "three": "^0.126.0"
+  }
 }
