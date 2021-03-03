@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "artcom-react",
+    "plugin:react-hooks/recommended",
+    "plugin:compat/recommended"
+  ],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "THREEx": true,
+    "THREE": true
+  }
+}
