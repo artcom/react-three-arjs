@@ -22,4 +22,6 @@ Explain API
 - [ ] todo -> handle ar.js global import and dat file
 - [ ] handle arjs requires three as global import
 - [ ] Add example
+- [ ] Add gifs
+- [ ] complete readme
 - [ ] CI Build
