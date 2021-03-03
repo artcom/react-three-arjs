@@ -8,6 +8,7 @@
     "src/"
   ],
   "scripts": {
+    "watch": "babel --watch src --out-dir lib",
     "build": "babel src --out-dir lib --source-maps"
   },
   "repository": {
