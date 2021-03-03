@@ -21,3 +21,5 @@ Explain API
 - [ ] use jsartoolkit instead of ar.js
 - [ ] todo -> handle ar.js global import and dat file
 - [ ] handle arjs requires three as global import
+- [ ] Add example
+- [ ] CI Build
