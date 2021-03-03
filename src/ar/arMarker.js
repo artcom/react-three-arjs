@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useRef } from "react"
 import { useAR } from "./ar"
 
@@ -15,8 +16,11 @@ const ARMarker = ({ children, type, barcodeValue, patternUrl, params }) => {
       ...params
     })
 
-    return () => markerControls.dispose()
-  }, [])
+    return () => {
+      const index = arToolkitContext._arMarkersControls.indexOf(markerControls)
+      arToolkitContext._arMarkersControls.splice(index, 1)
+    }
+  })
 
   return (
     <group ref={ markerRoot }>
