@@ -1,1 +1,1 @@
-export * from './ar'
+export * from "./ar"
