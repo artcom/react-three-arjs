@@ -20,7 +20,7 @@ const ARMarker = ({ children, type, barcodeValue, patternUrl, params }) => {
       const index = arToolkitContext._arMarkersControls.indexOf(markerControls)
       arToolkitContext._arMarkersControls.splice(index, 1)
     }
-  })
+  }, [])
 
   return (
     <group ref={ markerRoot }>
