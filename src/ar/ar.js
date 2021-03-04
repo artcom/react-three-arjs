@@ -3,19 +3,21 @@ import { useFrame, useThree } from "react-three-fiber"
 
 const ARContext = createContext({})
 
-const AR = ({ children, contextParams }) => {
+const AR = ({ children, patternRatio, matrixCodeType }) => {
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
+    console.log("Restart arContext")
     const arToolkitSource = new THREEx.ArToolkitSource({ sourceType: "webcam" })
     const arToolkitContext = new THREEx.ArToolkitContext({
       cameraParametersUrl: "data/camera_para.dat",
       detectionMode: "mono_and_matrix",
-      ...contextParams
+      patternRatio,
+      matrixCodeType
     })
 
     return { arToolkitContext, arToolkitSource }
-  }, [contextParams])
+  }, [patternRatio, matrixCodeType])
 
   const onResize = useCallback(() => {
     const { arToolkitContext, arToolkitSource } = arContext
