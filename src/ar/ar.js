@@ -2,20 +2,23 @@ import React, { createContext, useCallback, useEffect, useMemo } from "react"
 import { useFrame, useThree } from "react-three-fiber"
 
 const ARContext = createContext({})
+const videoDomElemSelector = "#arjs-video"
 
-const AR = ({ children, contextParams }) => {
+const AR = ({ children, patternRatio, matrixCodeType }) => {
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
+    console.log("Restart arContext")
     const arToolkitSource = new THREEx.ArToolkitSource({ sourceType: "webcam" })
     const arToolkitContext = new THREEx.ArToolkitContext({
       cameraParametersUrl: "data/camera_para.dat",
       detectionMode: "mono_and_matrix",
-      ...contextParams
+      patternRatio,
+      matrixCodeType
     })
 
     return { arToolkitContext, arToolkitSource }
-  }, [contextParams])
+  }, [patternRatio, matrixCodeType])
 
   const onResize = useCallback(() => {
     const { arToolkitContext, arToolkitSource } = arContext
@@ -26,6 +29,24 @@ const AR = ({ children, contextParams }) => {
       arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)
     }
   }, [gl, arContext])
+
+  const onUnmount = useCallback(() => {
+    console.log("onUnmount")
+
+    window.removeEventListener("resize", onResize)
+
+    arContext.arToolkitContext.arController.dispose()
+    if (arContext.arToolkitContext.arController.cameraParam) {
+      arContext.arToolkitContext.arController.cameraParam.dispose()
+    }
+
+    delete arContext.arToolkitContext
+    delete arContext.arToolkitSource
+
+    const video = document.querySelector(videoDomElemSelector)
+    video.srcObject.getTracks().map(track => track.stop())
+    video.parentNode.removeChild(video)
+  }, [onResize, arContext])
 
   useEffect(() => {
     arContext.arToolkitSource.init(() => {
@@ -39,8 +60,8 @@ const AR = ({ children, contextParams }) => {
 
     window.addEventListener("resize", onResize)
 
-    return () => window.removeEventListener("resize", onResize)
-  }, [arContext, camera, onResize])
+    return onUnmount
+  }, [arContext, camera, onResize, onUnmount])
 
   useFrame(() => {
     if (arContext.arToolkitSource && arContext.arToolkitSource.ready !== false) {
@@ -48,7 +69,7 @@ const AR = ({ children, contextParams }) => {
     }
   })
 
-  const value = React.useMemo(() => ({ arToolkitContext: arContext.arToolkitContext }), [arContext])
+  const value = useMemo(() => ({ arToolkitContext: arContext.arToolkitContext }), [arContext])
 
   return (
     <ARContext.Provider value={ value }>

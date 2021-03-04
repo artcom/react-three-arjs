@@ -15,7 +15,7 @@ const renderARCanvas = (children, contextParams) =>
       gl.physicallyCorrectLights = true
       gl.setSize(window.innerWidth, window.innerHeight)
     } }>
-    <AR contextParams={ contextParams }>
+    <AR patternRatio={ contextParams.patternRatio } matrixCodeType={ contextParams.matrixCodeType }>
       { children }
     </AR>
   </Canvas>
