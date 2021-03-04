@@ -2,6 +2,7 @@ import React, { createContext, useCallback, useEffect, useMemo } from "react"
 import { useFrame, useThree } from "react-three-fiber"
 
 const ARContext = createContext({})
+const videoDomElemSelector = "#arjs-video"
 
 const AR = ({ children, patternRatio, matrixCodeType }) => {
   const { gl, camera } = useThree()
@@ -29,6 +30,24 @@ const AR = ({ children, patternRatio, matrixCodeType }) => {
     }
   }, [gl, arContext])
 
+  const onUnmount = useCallback(() => {
+    console.log("onUnmount")
+
+    window.removeEventListener("resize", onResize)
+
+    arContext.arToolkitContext.arController.dispose()
+    if (arContext.arToolkitContext.arController.cameraParam) {
+      arContext.arToolkitContext.arController.cameraParam.dispose()
+    }
+
+    delete arContext.arToolkitContext
+    delete arContext.arToolkitSource
+
+    const video = document.querySelector(videoDomElemSelector)
+    video.srcObject.getTracks().map(track => track.stop())
+    video.parentNode.removeChild(video)
+  }, [onResize, arContext])
+
   useEffect(() => {
     arContext.arToolkitSource.init(() => {
       const video = document.querySelector("#arjs-video")
@@ -41,8 +60,8 @@ const AR = ({ children, patternRatio, matrixCodeType }) => {
 
     window.addEventListener("resize", onResize)
 
-    return () => window.removeEventListener("resize", onResize)
-  }, [arContext, camera, onResize])
+    return onUnmount
+  }, [arContext, camera, onResize, onUnmount])
 
   useFrame(() => {
     if (arContext.arToolkitSource && arContext.arToolkitSource.ready !== false) {
