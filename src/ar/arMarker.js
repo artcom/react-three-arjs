@@ -1,10 +1,18 @@
-/* eslint-disable no-underscore-dangle */
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
+import { useFrame } from "react-three-fiber"
 import { useAR } from "./ar"
 
-const ARMarker = ({ children, type, barcodeValue, patternUrl, params }) => {
+const ARMarker = ({
+  children,
+  type,
+  barcodeValue, patternUrl,
+  params,
+  onMarkerFound = () => { },
+  onMarkerLost = () => { }
+}) => {
   const markerRoot = useRef()
   const { arToolkitContext } = useAR()
+  const [isFound, setIsFound] = useState(false)
 
   useEffect(() => {
     if (!arToolkitContext) { return }
@@ -19,6 +27,16 @@ const ARMarker = ({ children, type, barcodeValue, patternUrl, params }) => {
     return () => {
       const index = arToolkitContext._arMarkersControls.indexOf(markerControls)
       arToolkitContext._arMarkersControls.splice(index, 1)
+    }
+  })
+
+  useFrame(() => {
+    if (markerRoot.current.visible && !isFound) {
+      setIsFound(true)
+      onMarkerFound()
+    } else if (!markerRoot.current.visible && isFound) {
+      setIsFound(false)
+      onMarkerLost()
     }
   })
 
