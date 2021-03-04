@@ -28,7 +28,7 @@ const ARMarker = ({
       const index = arToolkitContext._arMarkersControls.indexOf(markerControls)
       arToolkitContext._arMarkersControls.splice(index, 1)
     }
-  })
+  }, [])
 
   useFrame(() => {
     if (markerRoot.current.visible && !isFound) {
