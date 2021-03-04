@@ -31,8 +31,6 @@ const AR = ({ children, patternRatio, matrixCodeType }) => {
   }, [gl, arContext])
 
   const onUnmount = useCallback(() => {
-    console.log("onUnmount")
-
     window.removeEventListener("resize", onResize)
 
     arContext.arToolkitContext.arController.dispose()
@@ -45,7 +43,6 @@ const AR = ({ children, patternRatio, matrixCodeType }) => {
 
     const video = document.querySelector(videoDomElemSelector)
     video.srcObject.getTracks().map(track => track.stop())
-    video.parentNode.removeChild(video)
     video.remove()
   }, [onResize, arContext])
 
