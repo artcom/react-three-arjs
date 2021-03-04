@@ -46,6 +46,7 @@ const AR = ({ children, patternRatio, matrixCodeType }) => {
     const video = document.querySelector(videoDomElemSelector)
     video.srcObject.getTracks().map(track => track.stop())
     video.parentNode.removeChild(video)
+    video.remove()
   }, [onResize, arContext])
 
   useEffect(() => {
