@@ -69,7 +69,7 @@ const AR = ({ children, patternRatio, matrixCodeType }) => {
     }
   })
 
-  const value = React.useMemo(() => ({ arToolkitContext: arContext.arToolkitContext }), [arContext])
+  const value = useMemo(() => ({ arToolkitContext: arContext.arToolkitContext }), [arContext])
 
   return (
     <ARContext.Provider value={ value }>
