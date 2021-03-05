@@ -12,9 +12,35 @@ Example GIFSs
 ```
 
 ## Usage
+
+### ARCanvas
+
+```jsx
+<ARCanvas
+  children              // regular children
+  arEnabled             // if false, it will render children into <Canvas /> without AR context
+  contextParams={ {   
+    patternRatio,       // passed to arToolkit context
+    matrixCodeType      // passed to arToolkit context
+  } } 
+/>
 ```
-Explain API
+
+### ARMarker
+
+```jsx
+<ARMarker
+  children              // regular children
+  type                  // arToolkit marker type, "barcode" or "pattern"
+  barcodeValue          // if type="barcode", its algorithmic value
+  patternUrl            // if type="pattern", a link to its pattern file
+  params                // object which accepts all marker settings¹
+  onMarkerFound         // callback which will be invoked when marker has been found
+  onMarkerLost          // callback which will be invoked when previously found marker has been lost
+/>
 ```
+
+¹https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based)[
 
 ## ToDos
 
