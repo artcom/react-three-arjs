@@ -20,11 +20,13 @@ Example GIFSs
   children              // regular children
   arEnabled             // if false, it will render children into <Canvas /> without AR context
   contextParams={ {   
-    patternRatio,       // passed to arToolkit context
-    matrixCodeType      // passed to arToolkit context
+    patternRatio,       // passed to arToolkit context¹
+    matrixCodeType      // passed to arToolkit context¹
   } } 
 />
 ```
+
+¹https://ar-js-org.github.io/AR.js-Docs/marker-based/#threejs
 
 ### ARMarker
 
@@ -34,13 +36,17 @@ Example GIFSs
   type                  // arToolkit marker type, "barcode" or "pattern"
   barcodeValue          // if type="barcode", its algorithmic value
   patternUrl            // if type="pattern", a link to its pattern file
-  params                // object which accepts all marker settings¹
+  params                // object which accepts all marker settings²
   onMarkerFound         // callback which will be invoked when marker has been found
   onMarkerLost          // callback which will be invoked when previously found marker has been lost
 />
 ```
 
-¹https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based)[
+²https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based)
+
+## AR.js caveats
+- AR.js cannot be bundled, since it exposes global variables
+- AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat) file
 
 ## ToDos
 
@@ -51,3 +57,4 @@ Example GIFSs
 - [ ] Add gifs
 - [ ] complete readme
 - [ ] CI Build
+- [ ] Make path to data file configurable
