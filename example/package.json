@@ -1,0 +1,31 @@
+{
+  "name": "@artcom/react-three-arjs-example",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint src",
+    "start": "http-server -S -C cert.pem dist/",
+    "watch": "webpack serve --hot --https --mode=development"
+  },
+  "engines": {
+    "node": ">= 14.15.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^5.1.2",
+    "html-webpack-plugin": "^5.0.0",
+    "webpack": "^5.20.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-three-fiber": "^5.3.19",
+    "three": "^0.126.0"
+  }
+}
