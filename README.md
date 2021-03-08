@@ -17,12 +17,11 @@ Example GIFSs
 
 ```jsx
 <ARCanvas
-  children              // regular children
-  arEnabled             // if false, it will render children into <Canvas /> without AR context
-  contextParams={ {   
-    patternRatio,       // passed to arToolkit context¹
-    matrixCodeType      // passed to arToolkit context¹
-  } } 
+  arEnabled                                       // if false, it will render children into <Canvas /> without AR context
+  patternRatio = 0.5                              // passed to arToolkit context¹
+  detectionMode = "mono_and_matrix"               // passed to arToolkit context¹
+  cameraParametersUrl = "data/camera_para.dat"    // passed to arToolkit context¹
+  matrixCodeType = "3x3"                          // passed to arToolkit context¹
 />
 ```
 
@@ -45,16 +44,10 @@ Example GIFSs
 ²https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based)
 
 ## AR.js caveats
-- AR.js cannot be bundled, since it exposes global variables
-- AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat file
-
+- AR.js cannot be bundled, since it exposes global variables.
+- AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat) file.
+- Look at the [Example](./example) using webpack for bundling.
 ## ToDos
-
-- [ ] use jsartoolkit instead of ar.js
-- [ ] todo -> handle ar.js global import and dat file
-- [ ] handle arjs requires three as global import
-- [ ] Add example
-- [ ] Add gifs
-- [ ] complete readme
+- [ ] Add example video/gif
 - [ ] CI Build
-- [x] Make path to data file configurable
+- [ ] Use ar.js as module, depends on https://github.com/AR-js-org/AR.js/pull/116
