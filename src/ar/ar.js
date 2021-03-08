@@ -8,7 +8,6 @@ const AR = ({ children, patternRatio, matrixCodeType }) => {
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
-    console.log("Restart arContext")
     const arToolkitSource = new THREEx.ArToolkitSource({ sourceType: "webcam" })
     const arToolkitContext = new THREEx.ArToolkitContext({
       cameraParametersUrl: "data/camera_para.dat",
