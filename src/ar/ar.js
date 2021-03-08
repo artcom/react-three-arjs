@@ -23,7 +23,7 @@ const AR = ({
     })
 
     return { arToolkitContext, arToolkitSource }
-  }, [patternRatio, matrixCodeType])
+  }, [patternRatio, matrixCodeType, cameraParametersUrl, detectionMode])
 
   const onResize = useCallback(() => {
     const { arToolkitContext, arToolkitSource } = arContext
