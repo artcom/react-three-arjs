@@ -16,7 +16,12 @@ function Box() {
 }
 
 ReactDOM.render(
-  <ARCanvas>
+  <ARCanvas contextParams={ {
+    patternRatio: 0.5,
+    detectionMode: "mono_and_matrix",
+    cameraParametersUrl: "data/camera_para.dat",
+    matixCodeType: "3x3"
+  } }>
     <ambientLight />
     <ARMarker>
       <Box />
