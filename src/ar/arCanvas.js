@@ -5,36 +5,26 @@ import { Canvas } from "react-three-fiber"
 
 import { AR } from "./ar"
 
-const renderARCanvas = (children, contextParams) =>
-  <Canvas
-    gl={ { antialias: false, powerPreference: "default" } }
-    camera={ { position: [0, 0, 0] } }
-    pixelRatio={ window.devicePixelRatio }
-    onCreated={ ({ gl }) => {
-      gl.outputEncoding = THREE.sRGBEncoding
-      gl.physicallyCorrectLights = true
-      gl.setSize(window.innerWidth, window.innerHeight)
-    } }>
-    <AR patternRatio={ contextParams.patternRatio } matrixCodeType={ contextParams.matrixCodeType }>
-      { children }
-    </AR>
+const ARCanvas = (
+  arEnabled = true,
+  children,
+  patternRatio = 0.5,
+  detectionMode = "mono_and_matrix",
+  cameraParametersUrl = "data/camera_para.dat",
+  matrixCodeType = "3x3",
+  ...props) =>
+    <Canvas props={ props }>
+    {
+      arEnabled
+        ? <AR
+            patternRatio={ patternRatio }
+            matrixCodeType={ matrixCodeType }
+            detectionMode={ detectionMode }
+            cameraParametersUrl={ cameraParametersUrl }>
+          { children }
+          </AR>
+        : { children }
+    }
   </Canvas>
-
-const renderCanvas = children =>
-  <Canvas
-    gl={ { antialias: false, powerPreference: "default" } }
-    pixelRatio={ window.devicePixelRatio }
-    onCreated={ ({ gl }) => {
-      gl.outputEncoding = THREE.sRGBEncoding
-      gl.physicallyCorrectLights = true
-      gl.setClearColor(new THREE.Color("#020207"))
-    } }>
-    { children }
-  </Canvas>
-
-const ARCanvas = ({ children, contextParams, arEnabled = true }) =>
-  arEnabled
-    ? renderARCanvas(children, contextParams)
-    : renderCanvas(children)
 
 export default ARCanvas

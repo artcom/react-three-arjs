@@ -5,7 +5,8 @@ import { useAR } from "./ar"
 const ARMarker = ({
   children,
   type,
-  barcodeValue, patternUrl,
+  barcodeValue,
+  patternUrl,
   params,
   onMarkerFound = () => { },
   onMarkerLost = () => { }
