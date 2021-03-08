@@ -1,4 +1,4 @@
-# @artcom/react-three-arjs (DRAFT)
+# @artcom/react-three-arjs
 
 React components and hooks for creating [AR.js](https://github.com/AR-js-org/AR.js) applications with [react-three-fiber](https://github.com/pmndrs/react-three-fiber)
 
@@ -14,7 +14,7 @@ Example GIFSs
 ## Usage
 
 ### Example
-```
+```jsx
 import ReactDOM from "react-dom"
 import React from "react"
 
