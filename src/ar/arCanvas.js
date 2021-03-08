@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-pascal-case */
 
 import React from "react"
@@ -13,19 +15,18 @@ const ARCanvas = ({
   cameraParametersUrl = "data/camera_para.dat",
   matrixCodeType = "3x3",
   ...props }) =>
-    <Canvas { ...props }>
+  <Canvas { ...props }>
     {
       arEnabled
         ? <AR
-          patternRatio={ patternRatio }
-          matrixCodeType={ matrixCodeType }
-          detectionMode={ detectionMode }
-          cameraParametersUrl={ cameraParametersUrl }>
+            patternRatio={ patternRatio }
+            matrixCodeType={ matrixCodeType }
+            detectionMode={ detectionMode }
+            cameraParametersUrl={ cameraParametersUrl }>
           { children }
-        </AR>
+          </AR>
         : { children }
     }
-    { children }
   </Canvas>
 
 export default ARCanvas
