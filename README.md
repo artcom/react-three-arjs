@@ -70,7 +70,7 @@ ReactDOM.render(
 />
 ```
 
-²https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based)
+²https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based
 
 ## AR.js caveats
 - AR.js cannot be bundled, since it exposes global variables.
