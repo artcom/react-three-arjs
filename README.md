@@ -46,7 +46,7 @@ Example GIFSs
 
 ## AR.js caveats
 - AR.js cannot be bundled, since it exposes global variables
-- AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat) file
+- AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat file
 
 ## ToDos
 
