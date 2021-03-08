@@ -45,6 +45,7 @@ ReactDOM.render(
 
 ```jsx
 <ARCanvas
+  children                                        // regular children
   arEnabled                                       // if false, it will render children into <Canvas /> without AR context
   patternRatio = 0.5                              // passed to arToolkit context¹
   detectionMode = "mono_and_matrix"               // passed to arToolkit context¹
@@ -74,7 +75,7 @@ ReactDOM.render(
 ## AR.js caveats
 - AR.js cannot be bundled, since it exposes global variables.
 - AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat) file.
-- Look at the [Example](./example) using webpack for bundling.
+- Look at the [example](./example) using webpack for bundling.
 ## ToDos
 - [ ] Add example video/gif
 - [ ] CI Build
