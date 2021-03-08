@@ -53,7 +53,7 @@ const AR = ({
 
   useEffect(() => {
     arContext.arToolkitSource.init(() => {
-      const video = document.querySelector("#arjs-video")
+      const video = document.querySelector(videoDomElemSelector)
       video.onloadedmetadata = onResize
     })
 
