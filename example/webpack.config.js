@@ -1,8 +1,11 @@
 /* eslint-disable import/no-commonjs */
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const webpack = require("webpack")
 
-module.exports = (env = {}) => ({
+module.exports = (_, { mode }) => ({
   devServer: {
     publicPath: "/",
     contentBase: "./dist",
@@ -10,32 +13,52 @@ module.exports = (env = {}) => ({
     https: true
   },
   plugins: [
+    mode === "development" && new webpack.HotModuleReplacementPlugin(),
+    mode === "development" && new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "src/index.html"
+      template: "src/index.html",
+      inject: false
     }),
     new CopyWebpackPlugin([
+      { from: "lib/", to: "lib/" },
       { from: "data/", to: "data/" }
     ])
-  ],
-  mode: env.production ? "production" : "development",
-  devtool: env.production ? "source-map" : "eval-source-map",
+  ].filter(Boolean),
+  devtool: mode === "development" ? "eval-source-map" : "source-map",
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              plugins: [
+                mode === "development" && "react-refresh/babel",
+              ].filter(Boolean),
+            },
+          },
+        ]
+      }
     ]
   },
-  resolve: {
-    alias: {
-      "react": path.resolve("./node_modules/react"),
-      "react-dom": path.resolve("./node_modules/react-dom"),
-      "react-three-fiber": path.resolve("./node_modules/react-three-fiber")
-    }
-  },
   entry: {
-    app: "./src/index.js"
+    app: {
+      import: "./src/index.js",
+      dependOn: "shared",
+    },
+    threeJS: {
+      import: "./src/threeJSEntry.js",
+      dependOn: "shared",
+    },
+    shared: "three"
   },
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-  }
+  },
+  optimization: {
+    runtimeChunk: "single"
+  },
 })
