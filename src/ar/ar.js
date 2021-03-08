@@ -4,9 +4,9 @@ import { useFrame, useThree } from "react-three-fiber"
 const ARContext = createContext({})
 const videoDomElemSelector = "#arjs-video"
 
-const AR = ({ 
-  children, 
-  patternRatio, 
+const AR = ({
+  children,
+  patternRatio,
   matrixCodeType,
   detectionMode,
   cameraParametersUrl
