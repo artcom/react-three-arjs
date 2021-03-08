@@ -5,26 +5,27 @@ import { Canvas } from "react-three-fiber"
 
 import { AR } from "./ar"
 
-const ARCanvas = (
+const ARCanvas = ({
   arEnabled = true,
   children,
   patternRatio = 0.5,
   detectionMode = "mono_and_matrix",
   cameraParametersUrl = "data/camera_para.dat",
   matrixCodeType = "3x3",
-  ...props) =>
-    <Canvas props={ props }>
+  ...props }) =>
+    <Canvas { ...props }>
     {
       arEnabled
         ? <AR
-            patternRatio={ patternRatio }
-            matrixCodeType={ matrixCodeType }
-            detectionMode={ detectionMode }
-            cameraParametersUrl={ cameraParametersUrl }>
+          patternRatio={ patternRatio }
+          matrixCodeType={ matrixCodeType }
+          detectionMode={ detectionMode }
+          cameraParametersUrl={ cameraParametersUrl }>
           { children }
-          </AR>
+        </AR>
         : { children }
     }
+    { children }
   </Canvas>
 
 export default ARCanvas
