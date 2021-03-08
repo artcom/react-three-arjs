@@ -7,10 +7,6 @@ React components and hooks for creating [AR.js](https://github.com/AR-js-org/AR.
 npm install @artcom/react-three-arjs
 ```
 
-```
-Example GIFSs
-```
-
 ## Usage
 
 ### Example
@@ -22,7 +18,6 @@ import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
 
 ReactDOM.render(
   <ARCanvas
-    gl={ { antialias: false, powerPreference: "default" } }
     camera={ { position: [0, 0, 0] } }
     pixelRatio={ window.devicePixelRatio }
     onCreated={ ({ gl }) => {
