@@ -1,14 +1,11 @@
 import ReactDOM from "react-dom"
-import React, { useRef } from "react"
+import React from "react"
 
 import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
 
 function Box() {
-  const mesh = useRef()
-
   return (
-    <mesh
-      ref={ mesh }>
+    <mesh>
       <boxBufferGeometry args={ [1, 1, 1] } />
       <meshStandardMaterial color={ "hotpink" } />
     </mesh>
@@ -16,14 +13,21 @@ function Box() {
 }
 
 ReactDOM.render(
-  <ARCanvas contextParams={ {
-    patternRatio: 0.5,
-    detectionMode: "mono_and_matrix",
-    cameraParametersUrl: "data/camera_para.dat",
-    matixCodeType: "3x3"
-  } }>
+  <ARCanvas
+    gl={ { antialias: false, powerPreference: "default" } }
+    camera={ { position: [0, 0, 0] } }
+    pixelRatio={ window.devicePixelRatio }
+    onCreated={ ({ gl }) => {
+      gl.outputEncoding = THREE.sRGBEncoding
+      gl.physicallyCorrectLights = true
+      gl.setSize(window.innerWidth, window.innerHeight)
+    } }>
     <ambientLight />
-    <ARMarker>
+    <pointLight position={ [10, 10, 0] } intensity={ 10.0 } />
+    <ARMarker
+      type={ "pattern" }
+      patternUrl={ "data/hiro.patt" }
+      onMarkerFound={ () => { console.log("Marker Found")} }>
       <Box />
     </ARMarker>
   </ARCanvas>,
