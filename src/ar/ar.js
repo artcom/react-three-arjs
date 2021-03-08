@@ -4,14 +4,20 @@ import { useFrame, useThree } from "react-three-fiber"
 const ARContext = createContext({})
 const videoDomElemSelector = "#arjs-video"
 
-const AR = ({ children, patternRatio, matrixCodeType }) => {
+const AR = ({ 
+  children, 
+  patternRatio, 
+  matrixCodeType,
+  detectionMode,
+  cameraParametersUrl
+}) => {
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
     const arToolkitSource = new THREEx.ArToolkitSource({ sourceType: "webcam" })
     const arToolkitContext = new THREEx.ArToolkitContext({
-      cameraParametersUrl: "data/camera_para.dat",
-      detectionMode: "mono_and_matrix",
+      cameraParametersUrl,
+      detectionMode,
       patternRatio,
       matrixCodeType
     })

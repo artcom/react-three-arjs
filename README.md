@@ -57,4 +57,4 @@ Example GIFSs
 - [ ] Add gifs
 - [ ] complete readme
 - [ ] CI Build
-- [ ] Make path to data file configurable
+- [x] Make path to data file configurable
