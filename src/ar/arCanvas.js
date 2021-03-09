@@ -15,7 +15,7 @@ const ARCanvas = ({
   cameraParametersUrl = "data/camera_para.dat",
   matrixCodeType = "3x3",
   ...props }) =>
-  <Canvas { ...props }>
+  <Canvas camera={ arEnabled ? { position: [0, 0, 0] } : props.camera } { ...props }>
     {
       arEnabled
         ? <AR
@@ -23,9 +23,9 @@ const ARCanvas = ({
             matrixCodeType={ matrixCodeType }
             detectionMode={ detectionMode }
             cameraParametersUrl={ cameraParametersUrl }>
-          { children }
+              { children }
           </AR>
-        : { children }
+        : children
     }
   </Canvas>
 
