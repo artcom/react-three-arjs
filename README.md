@@ -51,6 +51,7 @@ ReactDOM.render(
   detectionMode = "mono_and_matrix"               // passed to arToolkit context¹
   cameraParametersUrl = "data/camera_para.dat"    // passed to arToolkit context¹
   matrixCodeType = "3x3"                          // passed to arToolkit context¹
+  onCameraStreamReady                             // callback which will be invoked when camera stream starts
 />
 ```
 

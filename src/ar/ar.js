@@ -9,7 +9,8 @@ const AR = ({
   patternRatio,
   matrixCodeType,
   detectionMode,
-  cameraParametersUrl
+  cameraParametersUrl,
+  onCameraStreamReady
 }) => {
   const { gl, camera } = useThree()
 
@@ -54,7 +55,10 @@ const AR = ({
   useEffect(() => {
     arContext.arToolkitSource.init(() => {
       const video = document.querySelector(videoDomElemSelector)
-      video.onloadedmetadata = onResize
+      video.onloadedmetadata = () => {
+        onCameraStreamReady()
+        onResize()
+      }
     })
 
     arContext.arToolkitContext.init(() =>
@@ -64,7 +68,7 @@ const AR = ({
     window.addEventListener("resize", onResize)
 
     return onUnmount
-  }, [arContext, camera, onResize, onUnmount])
+  }, [arContext, camera, onCameraStreamReady, onResize, onUnmount])
 
   useFrame(() => {
     if (arContext.arToolkitSource && arContext.arToolkitSource.ready !== false) {

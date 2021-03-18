@@ -14,6 +14,7 @@ const ARCanvas = ({
   detectionMode = "mono_and_matrix",
   cameraParametersUrl = "data/camera_para.dat",
   matrixCodeType = "3x3",
+  onCameraStreamReady = () => {},
   ...props }) =>
   <Canvas camera={ arEnabled ? { position: [0, 0, 0] } : props.camera } { ...props }>
     {
@@ -22,7 +23,8 @@ const ARCanvas = ({
             patternRatio={ patternRatio }
             matrixCodeType={ matrixCodeType }
             detectionMode={ detectionMode }
-            cameraParametersUrl={ cameraParametersUrl }>
+            cameraParametersUrl={ cameraParametersUrl }
+            onCameraStreamReady={ onCameraStreamReady }>
               { children }
           </AR>
         : children
