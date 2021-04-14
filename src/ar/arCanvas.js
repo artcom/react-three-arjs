@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-pascal-case */
 
 import React from "react"
-import { Canvas } from "react-three-fiber"
+import { Canvas } from "@react-three/fiber"
 
 import { AR } from "./ar"
 

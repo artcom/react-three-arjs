@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import { useFrame } from "react-three-fiber"
+import { useFrame } from "@react-three/fiber"
 import { useAR } from "./ar"
 
 const ARMarker = ({
