@@ -15,7 +15,7 @@ function Box() {
 ReactDOM.render(
   <ARCanvas
     gl={ { antialias: false, powerPreference: "default" } }
-    pixelRatio={ window.devicePixelRatio }
+    dpr={ window.devicePixelRatio }
     onCreated={ ({ gl }) => {
       gl.outputEncoding = THREE.sRGBEncoding
       gl.physicallyCorrectLights = true
