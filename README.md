@@ -4,7 +4,7 @@ React components and hooks for creating [AR.js](https://github.com/AR-js-org/AR.
 
 
 ```
-npm install github:artcom/react-three-arjs#v0.1.3
+npm install github:artcom/react-three-arjs#v0.1.4
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
 ReactDOM.render(
   <ARCanvas
     camera={ { position: [0, 0, 0] } }
-    pixelRatio={ window.devicePixelRatio }
+    dpr={ window.devicePixelRatio }
     onCreated={ ({ gl }) => {
       gl.setSize(window.innerWidth, window.innerHeight)
     } }>
