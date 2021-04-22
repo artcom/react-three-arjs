@@ -33,8 +33,9 @@ const AR = ({
     arToolkitSource.copyElementSizeTo(gl.domElement)
     if (arToolkitContext.arController !== null) {
       arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)
+      camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix())
     }
-  }, [gl, arContext])
+  }, [gl, arContext, camera])
 
   const onUnmount = useCallback(() => {
     window.removeEventListener("resize", onResize)
