@@ -50,8 +50,10 @@ const AR = ({
     delete arContext.arToolkitSource
 
     const video = document.querySelector(videoDomElemSelector)
-    video.srcObject.getTracks().map(track => track.stop())
-    video.remove()
+    if (video) {
+      video.srcObject.getTracks().map(track => track.stop())
+      video.remove()
+    }
   }, [onResize, arContext])
 
   useEffect(() => {
