@@ -10,7 +10,8 @@ const AR = ({
   matrixCodeType,
   detectionMode,
   cameraParametersUrl,
-  onCameraStreamReady
+  onCameraStreamReady,
+  onCameraStreamError
 }) => {
   const { gl, camera } = useThree()
 
@@ -60,7 +61,7 @@ const AR = ({
         onCameraStreamReady()
         onResize()
       }
-    })
+    }, onCameraStreamError)
 
     arContext.arToolkitContext.init(() =>
       camera.projectionMatrix.copy(arContext.arToolkitContext.getProjectionMatrix())
@@ -69,7 +70,7 @@ const AR = ({
     window.addEventListener("resize", onResize)
 
     return onUnmount
-  }, [arContext, camera, onCameraStreamReady, onResize, onUnmount])
+  }, [arContext, camera, onCameraStreamReady, onCameraStreamError, onResize, onUnmount])
 
   useFrame(() => {
     if (arContext.arToolkitSource && arContext.arToolkitSource.ready !== false) {
