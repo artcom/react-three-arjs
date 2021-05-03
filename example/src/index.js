@@ -16,6 +16,8 @@ ReactDOM.render(
   <ARCanvas
     gl={ { antialias: false, powerPreference: "default" } }
     dpr={ window.devicePixelRatio }
+    onCameraStreamReady={ () => console.log("Camera stream ready") }
+    onCameraStreamError={ () => console.error("Camera stream error") }
     onCreated={ ({ gl }) => {
       gl.outputEncoding = THREE.sRGBEncoding
       gl.physicallyCorrectLights = true
