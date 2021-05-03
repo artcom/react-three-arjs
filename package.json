@@ -31,10 +31,10 @@
   },
   "homepage": "https://github.com/artcom/react-three-arjs#readme",
   "peerDependencies": {
+    "@react-three/fiber": "^6.0.14",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "three": "^0.128.0",
-    "@react-three/fiber": "^6.0.14"
+    "three": "^0.126.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
