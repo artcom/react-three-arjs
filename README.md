@@ -52,6 +52,7 @@ ReactDOM.render(
   cameraParametersUrl = "data/camera_para.dat"    // passed to arToolkit context¹
   matrixCodeType = "3x3"                          // passed to arToolkit context¹
   onCameraStreamReady                             // callback which will be invoked when camera stream starts
+  onCameraStreamError                             // callback which will be invoked when camera stream fails, e.g.: permissions
 />
 ```
 
