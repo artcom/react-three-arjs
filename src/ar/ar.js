@@ -6,6 +6,7 @@ const videoDomElemSelector = "#arjs-video"
 
 const AR = ({
   children,
+  sourceParameters = { sourceType: "webcam" },
   patternRatio,
   matrixCodeType,
   detectionMode,
@@ -15,7 +16,7 @@ const AR = ({
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
-    const arToolkitSource = new THREEx.ArToolkitSource({ sourceType: "webcam" })
+    const arToolkitSource = new THREEx.ArToolkitSource(sourceParameters)
     const arToolkitContext = new THREEx.ArToolkitContext({
       cameraParametersUrl,
       detectionMode,
@@ -24,7 +25,7 @@ const AR = ({
     })
 
     return { arToolkitContext, arToolkitSource }
-  }, [patternRatio, matrixCodeType, cameraParametersUrl, detectionMode])
+  }, [patternRatio, matrixCodeType, cameraParametersUrl, detectionMode, sourceParameters])
 
   const onResize = useCallback(() => {
     const { arToolkitContext, arToolkitSource } = arContext
