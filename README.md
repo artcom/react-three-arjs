@@ -47,17 +47,19 @@ ReactDOM.render(
 <ARCanvas
   children                                        // regular children
   arEnabled                                       // if false, it will render children into <Canvas /> without AR context
-  patternRatio = 0.5                              // passed to arToolkit context¹
-  detectionMode = "mono_and_matrix"               // passed to arToolkit context¹
-  cameraParametersUrl = "data/camera_para.dat"    // passed to arToolkit context¹
-  matrixCodeType = "3x3"                          // passed to arToolkit context¹
+  patternRatio = 0.5                              // passed to arToolkit context ¹
+  detectionMode = "mono_and_matrix"               // passed to arToolkit context ¹
+  cameraParametersUrl = "data/camera_para.dat"    // passed to arToolkit context ¹
+  matrixCodeType = "3x3"                          // passed to arToolkit context ¹
   onCameraStreamReady                             // callback which will be invoked when camera stream starts
   onCameraStreamError                             // callback which will be invoked when camera stream fails, e.g.: permissions
-  sourceParameters                                // default: sourceParameters = { sourceType: "webcam" }, see https://github.com/AR-js-org/AR.js/blob/00fc2a92af1a756600eb53a57a84f101a2c0435f/three.js/src/threex/threex-artoolkitsource.js#L11-L26
+  sourceParameters                                // default: sourceParameters = { sourceType: "webcam" }, see ar.js code ²
 />
 ```
 
-¹https://ar-js-org.github.io/AR.js-Docs/marker-based/#threejs
+<sup>1</sup> https://ar-js-org.github.io/AR.js-Docs/marker-based/#threejs
+
+<sup>2</sup> https://github.com/AR-js-org/AR.js/blob/00fc2a92af1a756600eb53a57a84f101a2c0435f/three.js/src/threex/threex-artoolkitsource.js#L11-L26
 
 ### ARMarker
 
@@ -67,13 +69,13 @@ ReactDOM.render(
   type                  // arToolkit marker type, "barcode" or "pattern"
   barcodeValue          // if type="barcode", its algorithmic value
   patternUrl            // if type="pattern", a link to its pattern file
-  params                // object which accepts all marker settings²
+  params                // object which accepts all marker settings ³
   onMarkerFound         // callback which will be invoked when marker has been found
   onMarkerLost          // callback which will be invoked when previously found marker has been lost
 />
 ```
 
-²https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based
+<sup>3</sup> https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based
 
 ## AR.js caveats
 - AR.js cannot be bundled, since it exposes global variables.
