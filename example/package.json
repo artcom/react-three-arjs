@@ -10,22 +10,22 @@
     "node": ">= 14.15.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.0",
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.12.13",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^5.1.2",
     "html-webpack-plugin": "^5.0.0",
     "react-refresh": "^0.9.0",
-    "webpack": "^5.20.1",
-    "webpack-cli": "^4.5.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@artcom/react-three-arjs": "github:artcom/react-three-arjs#42c210efcc8ee756663dbeba718f7e64405ef35b",
-    "@react-three/fiber": "^6.0.14",
+    "@artcom/react-three-arjs": "github:artcom/react-three-arjs#release/v0.1.6",
+    "@react-three/fiber": "^6.0.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "three": "^0.126.0"
