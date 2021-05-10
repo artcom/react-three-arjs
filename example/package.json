@@ -24,7 +24,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@artcom/react-three-arjs": "git+ssh://git@github.com:artcom/react-three-arjs.git#main",
+    "@artcom/react-three-arjs": "github:artcom/react-three-arjs#42c210efcc8ee756663dbeba718f7e64405ef35b",
     "@react-three/fiber": "^6.0.14",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

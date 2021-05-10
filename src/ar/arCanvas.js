@@ -16,6 +16,7 @@ const ARCanvas = ({
   matrixCodeType = "3x3",
   sourceParameters = { },
   onCameraStreamReady = () => {},
+  onCameraStreamError = () => {},
   ...props }) =>
   <Canvas camera={ arEnabled ? { position: [0, 0, 0] } : props.camera } { ...props }>
     {
@@ -26,7 +27,8 @@ const ARCanvas = ({
             detectionMode={ detectionMode }
             sourceParameters={ sourceParameters }
             cameraParametersUrl={ cameraParametersUrl }
-            onCameraStreamReady={ onCameraStreamReady }>
+            onCameraStreamReady={ onCameraStreamReady }
+            onCameraStreamError={ onCameraStreamError }>
               { children }
           </AR>
         : children

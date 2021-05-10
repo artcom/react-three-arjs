@@ -11,7 +11,8 @@ const AR = ({
   matrixCodeType,
   detectionMode,
   cameraParametersUrl,
-  onCameraStreamReady
+  onCameraStreamReady,
+  onCameraStreamError
 }) => {
   const { gl, camera } = useThree()
 
@@ -50,8 +51,10 @@ const AR = ({
     delete arContext.arToolkitSource
 
     const video = document.querySelector(videoDomElemSelector)
-    video.srcObject.getTracks().map(track => track.stop())
-    video.remove()
+    if (video) {
+      video.srcObject.getTracks().map(track => track.stop())
+      video.remove()
+    }
   }, [onResize, arContext])
 
   useEffect(() => {
@@ -61,7 +64,7 @@ const AR = ({
         onCameraStreamReady()
         onResize()
       }
-    })
+    }, onCameraStreamError)
 
     arContext.arToolkitContext.init(() =>
       camera.projectionMatrix.copy(arContext.arToolkitContext.getProjectionMatrix())
@@ -70,7 +73,7 @@ const AR = ({
     window.addEventListener("resize", onResize)
 
     return onUnmount
-  }, [arContext, camera, onCameraStreamReady, onResize, onUnmount])
+  }, [arContext, camera, onCameraStreamReady, onCameraStreamError, onResize, onUnmount])
 
   useFrame(() => {
     if (arContext.arToolkitSource && arContext.arToolkitSource.ready !== false) {
