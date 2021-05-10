@@ -53,6 +53,7 @@ ReactDOM.render(
   matrixCodeType = "3x3"                          // passed to arToolkit context¹
   onCameraStreamReady                             // callback which will be invoked when camera stream starts
   onCameraStreamError                             // callback which will be invoked when camera stream fails, e.g.: permissions
+  sourceParameters                                // default: sourceParameters = { sourceType: "webcam" }, see https://github.com/AR-js-org/AR.js/blob/00fc2a92af1a756600eb53a57a84f101a2c0435f/three.js/src/threex/threex-artoolkitsource.js#L11-L26
 />
 ```
 
