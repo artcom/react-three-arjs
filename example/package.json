@@ -17,6 +17,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^5.1.2",
+    "eslint-plugin-compat": "^3.9.0",
     "html-webpack-plugin": "^5.0.0",
     "react-refresh": "^0.9.0",
     "webpack": "^5.37.1",
