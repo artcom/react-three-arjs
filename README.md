@@ -53,7 +53,7 @@ ReactDOM.render(
   matrixCodeType = "3x3"                          // passed to arToolkit context ¹
   onCameraStreamReady                             // callback which will be invoked when camera stream starts
   onCameraStreamError                             // callback which will be invoked when camera stream fails, e.g.: permissions
-  sourceParameters                                // default: sourceParameters = { sourceType: "webcam" }, see ar.js code ²
+  sourceParameters = { sourceType: "webcam" }     // set camera source parameters, see ar.js code ²
 />
 ```
 
@@ -65,13 +65,13 @@ ReactDOM.render(
 
 ```jsx
 <ARMarker
-  children              // regular children
-  type                  // arToolkit marker type, "barcode" or "pattern"
-  barcodeValue          // if type="barcode", its algorithmic value
-  patternUrl            // if type="pattern", a link to its pattern file
-  params                // object which accepts all marker settings ³
-  onMarkerFound         // callback which will be invoked when marker has been found
-  onMarkerLost          // callback which will be invoked when previously found marker has been lost
+  children                        // regular children
+  type                            // arToolkit marker type, "barcode" or "pattern"
+  barcodeValue                    // if type="barcode", its algorithmic value
+  patternUrl                      // if type="pattern", a link to its pattern file
+  params                          // object which accepts all marker settings ³, e.g. params = {{ smooth: true }}
+  onMarkerFound                   // callback which will be invoked when marker has been found
+  onMarkerLost                    // callback which will be invoked when previously found marker has been lost
 />
 ```
 
