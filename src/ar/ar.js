@@ -60,6 +60,8 @@ const AR = ({
   useEffect(() => {
     arContext.arToolkitSource.init(() => {
       const video = document.querySelector(videoDomElemSelector)
+      video.style.position = "fixed"
+
       video.onloadedmetadata = () => {
         onCameraStreamReady()
         onResize()
