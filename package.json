@@ -12,7 +12,7 @@
     "build": "babel src --out-dir lib --source-maps"
   },
   "engines": {
-    "node": ">= 14.15.0"
+    "node": ">= 14.17.6"
   },
   "repository": {
     "type": "git",
@@ -31,17 +31,20 @@
   },
   "homepage": "https://github.com/artcom/react-three-arjs#readme",
   "peerDependencies": {
-    "@react-three/fiber": "^6.0.21",
+    "@react-three/fiber": "^7.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "three": "^0.126.0"
+    "three": "^0.132.2",
+    "buffer": "^6.0.3"
   },
   "devDependencies": {
+    "@ar-js-org/ar.js": "https://github.com/artcom/AR.js.git#09cdfab60f7be03a30ce683c38905ce23b01236b",
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.12.13",
-    "@react-three/fiber": "^6.2.1",
+    "@react-three/fiber": "^7.0.7",
+    "buffer": "^6.0.3",
     "eslint": "^7.27.0",
     "eslint-config-artcom": "^0.11.0",
     "eslint-config-artcom-react": "^0.5.2",
@@ -51,6 +54,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "three": "^0.126.0"
+    "three": "^0.132.2"
   }
 }

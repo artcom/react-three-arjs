@@ -1,5 +1,6 @@
-import React, { createContext, useCallback, useEffect, useMemo } from "react"
 import { useFrame, useThree } from "@react-three/fiber"
+import { ArToolkitContext, ArToolkitSource } from "@ar-js-org/ar.js/three.js/build/ar-threex"
+import React, { createContext, useCallback, useEffect, useMemo } from "react"
 
 const ARContext = createContext({})
 const videoDomElemSelector = "#arjs-video"
@@ -17,8 +18,8 @@ const AR = ({
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
-    const arToolkitSource = new THREEx.ArToolkitSource(sourceParameters)
-    const arToolkitContext = new THREEx.ArToolkitContext({
+    const arToolkitSource = new ArToolkitSource(sourceParameters)
+    const arToolkitContext = new ArToolkitContext({
       cameraParametersUrl,
       detectionMode,
       patternRatio,

@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react"
+import { ArMarkerControls } from "@ar-js-org/ar.js/three.js/build/ar-threex"
 import { useFrame } from "@react-three/fiber"
+import React, { useEffect, useRef, useState } from "react"
 import { useAR } from "./ar"
 
 const ARMarker = ({
@@ -18,7 +19,7 @@ const ARMarker = ({
   useEffect(() => {
     if (!arToolkitContext) { return }
 
-    const markerControls = new THREEx.ArMarkerControls(arToolkitContext, markerRoot.current, {
+    const markerControls = new ArMarkerControls(arToolkitContext, markerRoot.current, {
       type,
       barcodeValue: type === "barcode" ? barcodeValue : null,
       patternUrl: type === "pattern" ? patternUrl : null,
