@@ -4,7 +4,7 @@ React components and hooks for creating [AR.js](https://github.com/AR-js-org/AR.
 
 
 ```
-npm install github:artcom/react-three-arjs#v0.1.7
+npm install github:artcom/react-three-arjs#v0.2.0
 ```
 
 ## Usage
@@ -78,10 +78,9 @@ ReactDOM.render(
 <sup>3</sup> https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based
 
 ## AR.js caveats
-- AR.js cannot be bundled, since it exposes global variables.
 - AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat) file.
 - Look at the [example](./example) using webpack for bundling.
 ## ToDos
 - [ ] Add example video/gif
 - [ ] CI Build
-- [ ] Use ar.js as module, depends on https://github.com/AR-js-org/AR.js/pull/116
+- [x] Use ar.js as module, depends on https://github.com/AR-js-org/AR.js/pull/116
