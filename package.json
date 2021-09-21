@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/artcom/react-three-arjs#readme",
   "peerDependencies": {
+    "@ar-js-org/ar.js": "https://github.com/artcom/AR.js.git#09cdfab60f7be03a30ce683c38905ce23b01236b",
     "@react-three/fiber": "^7.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
