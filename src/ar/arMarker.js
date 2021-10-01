@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { ArMarkerControls } from "@ar-js-org/ar.js/three.js/build/ar-threex"
 import { useFrame } from "@react-three/fiber"
 import React, { useEffect, useRef, useState } from "react"
