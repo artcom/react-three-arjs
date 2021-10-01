@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@ar-js-org/ar.js": "https://github.com/artcom/AR.js.git#09cdfab60f7be03a30ce683c38905ce23b01236b",
-    "@artcom/react-three-arjs": "github:artcom/react-three-arjs#v0.2.0",
+    "@artcom/react-three-arjs": "github:artcom/react-three-arjs#v0.2.1",
     "@react-three/fiber": "^7.0.7",
     "ar.js": "git+https://github.com/artcom/AR.js.git#09cdfab60f7be03a30ce683c38905ce23b01236b",
     "buffer": "^6.0.3",
