@@ -9,8 +9,8 @@ const ARMarker = ({
   barcodeValue,
   patternUrl,
   params,
-  onMarkerFound = () => { },
-  onMarkerLost = () => { }
+  onMarkerFound,
+  onMarkerLost
 }) => {
   const markerRoot = useRef()
   const { arToolkitContext } = useAR()
@@ -35,10 +35,10 @@ const ARMarker = ({
   useFrame(() => {
     if (markerRoot.current.visible && !isFound) {
       setIsFound(true)
-      onMarkerFound()
+      if (onMarkerFound) {onMarkerFound()}
     } else if (!markerRoot.current.visible && isFound) {
       setIsFound(false)
-      onMarkerLost()
+      if (onMarkerLost) {onMarkerLost()}
     }
   })
 

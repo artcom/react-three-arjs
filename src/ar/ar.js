@@ -5,9 +5,9 @@ import React, { createContext, useCallback, useEffect, useMemo } from "react"
 const ARContext = createContext({})
 const videoDomElemSelector = "#arjs-video"
 
-const AR = ({
+const AR = React.memo(({
   children,
-  sourceParameters = { sourceType: "webcam" },
+  sourceType,
   patternRatio,
   matrixCodeType,
   detectionMode,
@@ -18,7 +18,7 @@ const AR = ({
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
-    const arToolkitSource = new ArToolkitSource(sourceParameters)
+    const arToolkitSource = new ArToolkitSource({ sourceType })
     const arToolkitContext = new ArToolkitContext({
       cameraParametersUrl,
       detectionMode,
@@ -27,7 +27,7 @@ const AR = ({
     })
 
     return { arToolkitContext, arToolkitSource }
-  }, [patternRatio, matrixCodeType, cameraParametersUrl, detectionMode, sourceParameters])
+  }, [patternRatio, matrixCodeType, cameraParametersUrl, detectionMode, sourceType])
 
   const onResize = useCallback(() => {
     const { arToolkitContext, arToolkitSource } = arContext
@@ -64,7 +64,9 @@ const AR = ({
       video.style.position = "fixed"
 
       video.onloadedmetadata = () => {
-        onCameraStreamReady()
+        if (onCameraStreamReady) {
+          onCameraStreamReady()
+        }
         onResize()
       }
     }, onCameraStreamError)
@@ -91,7 +93,7 @@ const AR = ({
       { children }
     </ARContext.Provider>
   )
-}
+})
 
 const useAR = () => {
   const arValue = React.useContext(ARContext)
