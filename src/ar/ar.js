@@ -6,6 +6,7 @@ const ARContext = createContext({})
 const videoDomElemSelector = "#arjs-video"
 
 const AR = React.memo(({
+  tracking = true,
   children,
   sourceType,
   patternRatio,
@@ -81,6 +82,10 @@ const AR = React.memo(({
   }, [arContext, camera, onCameraStreamReady, onCameraStreamError, onResize, onUnmount])
 
   useFrame(() => {
+    if (!tracking) {
+      return
+    }
+
     if (arContext.arToolkitSource && arContext.arToolkitSource.ready !== false) {
       arContext.arToolkitContext.update(arContext.arToolkitSource.domElement)
     }

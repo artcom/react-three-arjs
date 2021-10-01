@@ -9,6 +9,7 @@ import { AR } from "./ar"
 
 const ARCanvas = ({
   arEnabled = true,
+  tracking = true,
   children,
   patternRatio = 0.5,
   detectionMode = "mono_and_matrix",
@@ -22,6 +23,7 @@ const ARCanvas = ({
     {
       arEnabled
         ? <AR
+            tracking={ tracking }
             patternRatio={ patternRatio }
             matrixCodeType={ matrixCodeType }
             detectionMode={ detectionMode }
