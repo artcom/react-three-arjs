@@ -47,13 +47,14 @@ ReactDOM.render(
 <ARCanvas
   children                                        // regular children
   arEnabled                                       // if false, it will render children into <Canvas /> without AR context
+  tracking                                        // if false, it will stop tracking
   patternRatio = 0.5                              // passed to arToolkit context ¹
   detectionMode = "mono_and_matrix"               // passed to arToolkit context ¹
   cameraParametersUrl = "data/camera_para.dat"    // passed to arToolkit context ¹
   matrixCodeType = "3x3"                          // passed to arToolkit context ¹
   onCameraStreamReady                             // callback which will be invoked when camera stream starts
   onCameraStreamError                             // callback which will be invoked when camera stream fails, e.g.: permissions
-  sourceParameters = { sourceType: "webcam" }     // set camera source parameters, see ar.js code ²
+  sourceType = "webcam"                           // set camera source type, see ar.js code ²
 />
 ```
 
