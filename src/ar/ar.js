@@ -91,7 +91,10 @@ const AR = React.memo(({
     }
   })
 
-  const value = useMemo(() => ({ arToolkitContext: arContext.arToolkitContext }), [arContext])
+  const value = useMemo(() => ({
+    arToolkitContext: arContext.arToolkitContext,
+    tracking })
+  , [arContext, tracking])
 
   return (
     <ARContext.Provider value={ value }>

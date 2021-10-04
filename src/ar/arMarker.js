@@ -14,10 +14,12 @@ const ARMarker = ({
   onMarkerLost
 }) => {
   const markerRoot = useRef()
-  const { arToolkitContext } = useAR()
+  const { arToolkitContext, tracking } = useAR()
   const [isFound, setIsFound] = useState(false)
 
   useEffect(() => {
+    console.log("ARMarker", "mount")
+
     if (!arToolkitContext) { return }
 
     const markerControls = new ArMarkerControls(arToolkitContext, markerRoot.current, {
@@ -33,13 +35,25 @@ const ARMarker = ({
     }
   }, [])
 
+  useEffect(() => {
+    if (tracking === false) {
+      markerRoot.current.visible = false
+    }
+  }, [tracking])
+
+  useEffect(() => {
+    if (isFound) {
+      if (onMarkerFound) {onMarkerFound()}
+    } else {
+      if (onMarkerLost) {onMarkerLost()}
+    }
+  }, [isFound, onMarkerFound, onMarkerLost])
+
   useFrame(() => {
     if (markerRoot.current.visible && !isFound) {
       setIsFound(true)
-      if (onMarkerFound) {onMarkerFound()}
     } else if (!markerRoot.current.visible && isFound) {
       setIsFound(false)
-      if (onMarkerLost) {onMarkerLost()}
     }
   })
 
