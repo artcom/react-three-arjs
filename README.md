@@ -4,7 +4,7 @@ React components and hooks for creating [AR.js](https://github.com/AR-js-org/AR.
 
 
 ```
-npm install github:artcom/react-three-arjs#v0.3.0
+npm install github:artcom/react-three-arjs#v0.3.1
 ```
 
 ## Usage
