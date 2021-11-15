@@ -78,9 +78,9 @@ ReactDOM.render(
 
 <sup>3</sup> https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based
 
-## AR.js caveats
-- AR.js context requires [camera_para.dat](https://github.com/AR-js-org/AR.js/blob/master/data/data/camera_para.dat) file.
+## Usage
 - Look at the [example](./example) using webpack for bundling.
+
 ## ToDos
 - [ ] Add example video/gif
 - [ ] CI Build
