@@ -9,7 +9,8 @@ npm i @artcom/react-three-arjs
 
 ## Usage
 
-### Example
+Provide a [camera_para.dat](./example/data/camera_para.dat) file in your public folder, default path is `data/camera_para.dat`. See the [example](./example).
+
 ```jsx
 import ReactDOM from "react-dom"
 import React from "react"
@@ -77,9 +78,6 @@ ReactDOM.render(
 ```
 
 <sup>3</sup> https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based
-
-## Usage
-- Look at the [example](./example) using webpack for bundling.
 
 ## ToDos
 - [ ] Add example video/gif
