@@ -27,7 +27,6 @@ ReactDOM.render(
     <ambientLight />
     <pointLight position={ [10, 10, 0] } intensity={ 10.0 } />
     <ARMarker
-      params={ { smooth: true } }
       type={ "pattern" }
       patternUrl={ "data/patt.hiro" }
       onMarkerFound={ () => { console.log("Marker Found")} }>
