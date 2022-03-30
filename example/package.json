@@ -32,7 +32,7 @@
     "webpack-dev-server": "^4.2.1"
   },
   "dependencies": {
-    "@ar-js-org/ar.js": "3.3.3-es6-beta-01",
+    "@ar-js-org/ar.js": "^3.4.0-alpha-rc2",
     "@artcom/react-three-arjs": "^0.3.2",
     "@react-three/fiber": "^7.0.7",
     "buffer": "^6.0.3",
