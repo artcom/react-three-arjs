@@ -65,6 +65,20 @@ const AR = React.memo(({
       video.style.position = "fixed"
 
       video.onloadedmetadata = () => {
+        console.log(
+          "actual source dimensions",
+          video.videoWidth,
+          video.videoHeight
+        )
+
+        if (video.videoWidth > video.videoHeight) {
+          arContext.arToolkitContext.arController.orientation = "landscape"
+          arContext.arToolkitContext.arController.options.orientation = "landscape"
+        } else {
+          arContext.arToolkitContext.arController.orientation = "portrait"
+          arContext.arToolkitContext.arController.options.orientation = "portrait"
+        }
+
         if (onCameraStreamReady) {
           onCameraStreamReady()
         }
