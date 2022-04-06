@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "watch": "babel --watch src --out-dir lib",
-    "build": "babel src --out-dir lib --source-maps"
+    "build": "babel src --out-dir lib --copy-files --source-maps"
   },
   "engines": {
     "node": ">= 14.17.6"
