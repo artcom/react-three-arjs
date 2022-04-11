@@ -32,11 +32,11 @@
   "homepage": "https://github.com/artcom/react-three-arjs#readme",
   "peerDependencies": {
     "@ar-js-org/ar.js": "^3.4.0-alpha-rc2",
-    "@react-three/fiber": "^7.0.7",
+    "@react-three/fiber": "^7.0.27",
     "buffer": "^6.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "three": "^0.134.0"
+    "three": "^0.139.2"
   },
   "devDependencies": {
     "@ar-js-org/ar.js": "^3.4.0-alpha-rc2",
@@ -44,7 +44,7 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.12.13",
-    "@react-three/fiber": "^7.0.7",
+    "@react-three/fiber": "^7.0.27",
     "buffer": "^6.0.3",
     "eslint": "^7.27.0",
     "eslint-config-artcom": "^0.11.0",
@@ -55,6 +55,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "three": "^0.134.0"
+    "three": "^0.139.2"
   }
 }
