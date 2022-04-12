@@ -4,8 +4,7 @@
   "description": "AR.js with react-three-fiber ",
   "main": "lib/index.js",
   "files": [
-    "lib/",
-    "src/"
+    "lib/"
   ],
   "scripts": {
     "watch": "babel --watch src --out-dir lib",
