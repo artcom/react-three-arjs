@@ -1,5 +1,6 @@
+.vscode
 node_modules/
 example/cert.pem
 example/key.pem
 example/dist
-.vscode
+lib/
