@@ -16,10 +16,8 @@ module.exports = (_, { mode }) => ({
   resolve: {
     alias: {
       react: path.resolve("./node_modules/react"),
-      "react-dom": path.resolve("./node_modules/react-dom"),
-      "react-redux": path.resolve("./node_modules/react-redux"),
       three: path.resolve("./node_modules/three"),
-      "styled-components": path.resolve("./node_modules/styled-components"),
+      "react-dom": path.resolve("./node_modules/react-dom"),
       "@react-three/fiber": path.resolve("./node_modules/@react-three/fiber"),
     },
   },
