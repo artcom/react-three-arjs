@@ -4,10 +4,10 @@ import React from "react"
 import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
 import { sRGBEncoding } from "three"
 
-function Box() {
+function Box({ scale }) {
   return (
     <mesh>
-      <boxBufferGeometry args={[1, 1, 1]} />
+      <boxBufferGeometry args={scale} />
       <meshStandardMaterial color={"hotpink"} />
     </mesh>
   )
@@ -28,12 +28,12 @@ ReactDOM.render(
     <pointLight position={[10, 10, 0]} intensity={10.0} />
     <ARMarker
       params={{ smooth: true }}
-      type={"pattern"}
-      patternUrl={"data/patt.hiro"}
+      type={"nft"}
+      descriptorsUrl={"data/marker/pinball"}
       onMarkerFound={() => {
         console.log("Marker Found")
       }}>
-      <Box />
+      <Box scale={[100, 100, 100]} />
     </ARMarker>
   </ARCanvas>,
   document.getElementById("root"),

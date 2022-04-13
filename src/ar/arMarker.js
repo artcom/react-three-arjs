@@ -6,9 +6,10 @@ import { useAR } from "./ar"
 
 const ARMarker = ({
   children,
-  type,
+  type = "nft",
   barcodeValue,
   patternUrl,
+  descriptorsUrl,
   params,
   onMarkerFound,
   onMarkerLost,
@@ -16,6 +17,8 @@ const ARMarker = ({
   const markerRoot = useRef()
   const { arToolkitContext } = useAR()
   const [isFound, setIsFound] = useState(false)
+
+  console.log(descriptorsUrl);
 
   useEffect(() => {
     if (!arToolkitContext) {
@@ -26,6 +29,7 @@ const ARMarker = ({
       type,
       barcodeValue: type === "barcode" ? barcodeValue : null,
       patternUrl: type === "pattern" ? patternUrl : null,
+      descriptorsUrl: type === "nft" ? descriptorsUrl : null,
       ...params,
     })
 
