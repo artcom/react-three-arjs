@@ -18,23 +18,25 @@ const ARCanvas = ({
   sourceType = "webcam",
   onCameraStreamReady,
   onCameraStreamError,
-  ...props }) =>
-  <Canvas camera={ arEnabled ? { position: [0, 0, 0] } : props.camera } { ...props }>
-    {
-      arEnabled
-        ? <AR
-            tracking={ tracking }
-            patternRatio={ patternRatio }
-            matrixCodeType={ matrixCodeType }
-            detectionMode={ detectionMode }
-            sourceType={ sourceType }
-            cameraParametersUrl={ cameraParametersUrl }
-            onCameraStreamReady={ onCameraStreamReady }
-            onCameraStreamError={ onCameraStreamError }>
-              { children }
-          </AR>
-        : children
-    }
+  ...props
+}) => (
+  <Canvas camera={arEnabled ? { position: [0, 0, 0] } : props.camera} {...props}>
+    {arEnabled ? (
+      <AR
+        tracking={tracking}
+        patternRatio={patternRatio}
+        matrixCodeType={matrixCodeType}
+        detectionMode={detectionMode}
+        sourceType={sourceType}
+        cameraParametersUrl={cameraParametersUrl}
+        onCameraStreamReady={onCameraStreamReady}
+        onCameraStreamError={onCameraStreamError}>
+        {children}
+      </AR>
+    ) : (
+      children
+    )}
   </Canvas>
+)
 
 export default ARCanvas

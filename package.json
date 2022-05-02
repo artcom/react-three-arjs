@@ -1,11 +1,10 @@
 {
   "name": "@artcom/react-three-arjs",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "AR.js with react-three-fiber ",
   "main": "lib/index.js",
   "files": [
-    "lib/",
-    "src/"
+    "lib/"
   ],
   "scripts": {
     "watch": "babel --watch src --out-dir lib",
@@ -31,30 +30,32 @@
   },
   "homepage": "https://github.com/artcom/react-three-arjs#readme",
   "peerDependencies": {
-    "@ar-js-org/ar.js": "3.3.3-es6-beta-01",
-    "@react-three/fiber": "^7.0.7",
+    "@ar-js-org/ar.js": "^3.4.0",
+    "@react-three/fiber": "^7.0.27",
+    "buffer": "^6.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "three": "^0.134.0",
-    "buffer": "^6.0.3"
+    "three": "^0.139.2"
   },
   "devDependencies": {
-    "@ar-js-org/ar.js": "3.3.3-es6-beta-01",
+    "@ar-js-org/ar.js": "^3.4.0",
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.12.13",
-    "@react-three/fiber": "^7.0.7",
+    "@react-three/fiber": "^7.0.27",
     "buffer": "^6.0.3",
-    "eslint": "^7.27.0",
-    "eslint-config-artcom": "^0.11.0",
-    "eslint-config-artcom-react": "^0.5.2",
-    "eslint-plugin-compat": "^3.9.0",
+    "core-js": "^3.21.1",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "three": "^0.134.0"
+    "three": "^0.139.2"
   }
 }
