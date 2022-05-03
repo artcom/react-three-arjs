@@ -20,7 +20,6 @@ import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
 ReactDOM.render(
   <ARCanvas
     camera={ { position: [0, 0, 0] } }
-    dpr={ window.devicePixelRatio }
     onCreated={ ({ gl }) => {
       gl.setSize(window.innerWidth, window.innerHeight)
     } }>
@@ -82,8 +81,3 @@ ReactDOM.render(
 ```
 
 <sup>3</sup> https://ar-js-org.github.io/AR.js-Docs/marker-based/#api-reference-for-marker-based
-
-## ToDos
-- [ ] Add example video/gif
-- [ ] CI Build
-- [x] Use ar.js as module, depends on https://github.com/AR-js-org/AR.js/pull/116
