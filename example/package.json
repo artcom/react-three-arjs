@@ -8,43 +8,43 @@
     "start": "http-server -S -C cert.pem dist/"
   },
   "engines": {
-    "node": ">= 14.15.0"
+    "node": ">= 16.15"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/artcom/react-three-arjs.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.9",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
-    "babel-loader": "^8.2.4",
+    "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^10.2.4",
-    "eslint": "^8.13.0",
+    "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
-    "react-refresh": "^0.12.0",
+    "react-refresh": "^0.13.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
     "@ar-js-org/ar.js": "^3.4.0",
-    "@artcom/react-three-arjs": "^0.3.4",
-    "@react-three/fiber": "^7.0.27",
+    "@artcom/react-three-arjs": "^0.5.0",
+    "@react-three/fiber": "^8.0.12",
     "buffer": "^6.0.3",
-    "core-js": "^3.21.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "three": "^0.139.2"
+    "core-js": "^3.22.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "three": "^0.140.0"
   },
   "browserslist": [
     "defaults"
