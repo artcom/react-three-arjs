@@ -12,7 +12,8 @@ export interface ARCanvasProps extends Props {
   onCameraStreamError: () => void;
 }
 
-export interface ARMarkerProps extends React.PropsWithChildren {
+export interface ARMarkerProps {
+  children: React.ReactNode;
   type: string;
   barcodeValue: string;
   patternUrl: string;

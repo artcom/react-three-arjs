@@ -3,6 +3,7 @@
   "version": "0.4.0",
   "description": "AR.js with react-three-fiber ",
   "main": "lib/index.js",
+  "types": "types/src/index.d.ts",
   "files": [
     "lib/"
   ],
