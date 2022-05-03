@@ -1,7 +1,6 @@
-import ReactDOM from "react-dom"
-import React from "react"
-
 import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
+import React from "react"
+import { createRoot } from "react-dom/client"
 import { sRGBEncoding } from "three"
 
 function Box() {
@@ -13,7 +12,7 @@ function Box() {
   )
 }
 
-ReactDOM.render(
+createRoot(document.getElementById("root")).render(
   <ARCanvas
     gl={{ antialias: false, powerPreference: "default" }}
     dpr={window.devicePixelRatio}
@@ -36,5 +35,4 @@ ReactDOM.render(
       <Box />
     </ARMarker>
   </ARCanvas>,
-  document.getElementById("root"),
 )
