@@ -42,8 +42,8 @@
     "@react-three/fiber": "^8.0.12",
     "buffer": "^6.0.3",
     "core-js": "^3.22.4",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "three": "^0.140.0"
   },
   "browserslist": [
