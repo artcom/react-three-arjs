@@ -59,7 +59,8 @@ ReactDOM.render(
   onCameraStreamReady                             // callback which will be invoked when camera stream starts
   onCameraStreamError                             // callback which will be invoked when camera stream fails, e.g.: permissions
   sourceType = "webcam"                           // set camera source type, see ar.js code ²
-/>
+  ...props                                        // props are passed to [Canvas](https://docs.pmnd.rs/react-three-fiber/api/canvas)
+/>                                                
 ```
 
 <sup>1</sup> https://ar-js-org.github.io/AR.js-Docs/marker-based/#threejs
