@@ -63,6 +63,7 @@ const AR = React.memo(function AR({
     arContext.arToolkitSource.init(() => {
       const video = document.querySelector(videoDomElemSelector)
       video.style.position = "fixed"
+      video.style.pointerEvents = "none"
 
       video.onloadedmetadata = () => {
         console.log("actual source dimensions", video.videoWidth, video.videoHeight)
