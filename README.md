@@ -59,7 +59,7 @@ ReactDOM.render(
   onCameraStreamReady                             // callback which will be invoked when camera stream starts
   onCameraStreamError                             // callback which will be invoked when camera stream fails, e.g.: permissions
   sourceType = "webcam"                           // set camera source type, see ar.js code ²
-  ...props                                        // props are passed to the r3f canvas
+  ...props                                        // props are passed to the r3f canvas ³
 />                                                
 ```
 
