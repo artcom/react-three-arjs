@@ -3,9 +3,21 @@
 /* eslint-disable react/jsx-pascal-case */
 
 import React from "react"
-import { Canvas } from "@react-three/fiber"
+import { Canvas, events } from "@react-three/fiber"
 
 import { AR } from "./ar"
+
+const eventManagerFactory = state => ({
+  ...events(state),
+
+  compute(event, state) {
+    state.pointer.set(
+      (event.clientX / state.size.width) * 2 - 1,
+      -(event.clientY / state.size.height) * 2 + 1,
+    )
+    state.raycaster.setFromCamera(state.pointer, state.camera)
+  },
+})
 
 const ARCanvas = ({
   arEnabled = true,
@@ -20,7 +32,10 @@ const ARCanvas = ({
   onCameraStreamError,
   ...props
 }) => (
-  <Canvas camera={arEnabled ? { position: [0, 0, 0] } : props.camera} {...props}>
+  <Canvas
+    events={eventManagerFactory}
+    camera={arEnabled ? { position: [0, 0, 0] } : props.camera}
+    {...props}>
     {arEnabled ? (
       <AR
         tracking={tracking}

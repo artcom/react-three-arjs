@@ -4,7 +4,11 @@ import { createRoot } from "react-dom/client"
 
 function Box() {
   return (
-    <mesh>
+    <mesh
+      onClick={e => {
+        window.alert("click")
+        console.log(e)
+      }}>
       <boxBufferGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={"hotpink"} />
     </mesh>
