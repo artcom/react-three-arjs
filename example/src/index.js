@@ -9,7 +9,7 @@ function Box() {
         window.alert("click")
         console.log(e)
       }}>
-      <boxBufferGeometry args={[1, 1, 1]} />
+      <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={"hotpink"} />
     </mesh>
   )
