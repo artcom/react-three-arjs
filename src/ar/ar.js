@@ -1,5 +1,6 @@
-import { useFrame, useThree } from "@react-three/fiber"
+/* eslint-disable import/named */
 import { ArToolkitContext, ArToolkitSource } from "@ar-js-org/ar.js/three.js/build/ar-threex"
+import { useFrame, useThree } from "@react-three/fiber"
 import React, { createContext, useCallback, useEffect, useMemo } from "react"
 
 const ARContext = createContext({})
