@@ -28,7 +28,6 @@ module.exports = (_, { mode }) => ({
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: "./node_modules/@ar-js-org/artoolkit5-js/data/", to: "data/" },
         { from: "./data/", to: "data/" },
       ],
     }),
