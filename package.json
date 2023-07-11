@@ -30,12 +30,12 @@
   },
   "homepage": "https://github.com/artcom/react-three-arjs#readme",
   "peerDependencies": {
-    "@ar-js-org/ar.js": "^3.4.3",
-    "@react-three/fiber": "^8.10.1",
+    "@ar-js-org/ar.js": "^3.4.5",
+    "@react-three/fiber": "^8.13.4",
     "buffer": "^6.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "^0.148.0"
+    "three": "^0.154.0"
   },
   "devDependencies": {
     "@ar-js-org/ar.js": "^3.4.5",
