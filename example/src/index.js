@@ -1,16 +1,16 @@
 import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
-import React from "react"
+import React, { useState } from "react"
 import { createRoot } from "react-dom/client"
+import { Stats } from "@react-three/drei"
+import { useThree } from "@react-three/fiber"
 
 function Box() {
+  const [hovered, setHovered] = useState(false)
+
   return (
-    <mesh
-      onClick={e => {
-        window.alert("click")
-        console.log(e)
-      }}>
+    <mesh onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={"hotpink"} />
+      <meshStandardMaterial color={hovered ? "yellow" : "hotpink"} />
     </mesh>
   )
 }
