@@ -10,6 +10,7 @@ const AR = React.memo(function AR({
   tracking = true,
   children,
   sourceType,
+  sourceUrl,
   patternRatio,
   matrixCodeType,
   detectionMode,
@@ -20,7 +21,7 @@ const AR = React.memo(function AR({
   const { gl, camera } = useThree()
 
   const arContext = useMemo(() => {
-    const arToolkitSource = new ArToolkitSource({ sourceType })
+    const arToolkitSource = new ArToolkitSource({ sourceType, sourceUrl })
     const arToolkitContext = new ArToolkitContext({
       cameraParametersUrl,
       detectionMode,
