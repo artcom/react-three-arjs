@@ -22,7 +22,9 @@ createRoot(document.getElementById("root")).render(
     onCameraStreamError={() => console.error("Camera stream error")}
     onCreated={({ gl }) => {
       gl.setSize(window.innerWidth, window.innerHeight)
-    }}>
+    }}
+    sourceType={"image"}
+    sourceUrl={"data/hiro-marker-test.jpg"}>
     <ambientLight />
     <pointLight position={[10, 10, 0]} intensity={10.0} />
     <ARMarker

@@ -6,6 +6,7 @@ import React from "react"
 import { Canvas, events } from "@react-three/fiber"
 
 import { AR } from "./ar"
+import { Grid } from "@react-three/drei"
 
 const eventManagerFactory = state => ({
   ...events(state),
@@ -28,14 +29,15 @@ const ARCanvas = ({
   cameraParametersUrl = "data/camera_para.dat",
   matrixCodeType = "3x3",
   sourceType = "webcam",
-  sourceUrl,
+  sourceUrl = null,
   onCameraStreamReady,
   onCameraStreamError,
   ...props
 }) => (
   <Canvas
     events={eventManagerFactory}
-    camera={arEnabled ? { position: [0, 0, 0] } : props.camera}
+    // camera={arEnabled ? { position: [0, 0, 0] } : props.camera}
+    // camera={ { position: [0, 0, 0] } }
     {...props}>
     {arEnabled ? (
       <AR
