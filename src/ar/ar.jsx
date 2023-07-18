@@ -69,11 +69,23 @@ const AR = React.memo(function AR({
         sourceElement.style.position = "fixed"
 
         if (sourceElement.tagName === "IMG") {
-          updateOrientation(sourceElement)
+          if (sourceElement.width > sourceElement.height) {
+            arContext.arToolkitContext.arController.orientation = "landscape"
+            arContext.arToolkitContext.arController.options.orientation = "landscape"
+          } else {
+            arContext.arToolkitContext.arController.orientation = "portrait"
+            arContext.arToolkitContext.arController.options.orientation = "portrait"
+          }
           onResize()
         } else if (sourceElement.tagName === "VIDEO") {
           sourceElement.onloadedmetadata = () => {
-            updateOrientation(sourceElement)
+            if (sourceElement.videoWidth > sourceElement.videoHeight) {
+              arContext.arToolkitContext.arController.orientation = "landscape"
+              arContext.arToolkitContext.arController.options.orientation = "landscape"
+            } else {
+              arContext.arToolkitContext.arController.orientation = "portrait"
+              arContext.arToolkitContext.arController.options.orientation = "portrait"
+            }
             onCameraStreamReady?.()
             onResize()
           }
@@ -85,16 +97,6 @@ const AR = React.memo(function AR({
     })
 
     window.addEventListener("resize", onResize)
-
-    const updateOrientation = sourceElement => {
-      if (sourceElement.width > sourceElement.height) {
-        arContext.arToolkitContext.arController.orientation = "landscape"
-        arContext.arToolkitContext.arController.options.orientation = "landscape"
-      } else {
-        arContext.arToolkitContext.arController.orientation = "portrait"
-        arContext.arToolkitContext.arController.options.orientation = "portrait"
-      }
-    }
 
     return onUnmount
   }, [arContext, camera, onCameraStreamReady, onCameraStreamError, onResize, onUnmount])
