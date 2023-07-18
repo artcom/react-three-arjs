@@ -2,9 +2,8 @@
 /* eslint-disable no-underscore-dangle */
 import { ArMarkerControls } from "@ar-js-org/ar.js/three.js/build/ar-threex"
 import { useFrame } from "@react-three/fiber"
-import React, { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useAR } from "./ar"
-import { f } from "core-js/internals/object-define-property"
 
 const ARMarker = ({
   children,
@@ -40,8 +39,6 @@ const ARMarker = ({
 
   useFrame(() => {
     if (markerRoot.current.visible && !isFound) {
-      // markerRoot.current.updateMatrixWorld(false)
-      markerRoot.current.updateWorldMatrix(false, true)
       setIsFound(true)
       if (onMarkerFound) {
         onMarkerFound()
