@@ -5,12 +5,12 @@ import { Stats } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 
 function Box() {
-  const [hovered, setHovered] = useState(false)
+  const [selected, setSelected] = useState(false)
 
   return (
-    <mesh onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)} >
+    <mesh onClick={() => setSelected(!selected)}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "yellow" : "hotpink"} />
+      <meshStandardMaterial color={selected ? "yellow" : "hotpink"} />
     </mesh>
   )
 }
