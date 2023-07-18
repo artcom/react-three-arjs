@@ -1,21 +1,34 @@
 {
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
   "extends": [
     "eslint:recommended",
-    "plugin:compat/recommended",
     "plugin:import/recommended",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "plugin:import/react",
+    "prettier"
   ],
-  "env": {
-    "browser": true
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
-  "globals": {
-    "THREEx": true,
-    "THREE": true
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"],
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
   },
   "rules": {
-    "react/prop-types": 0,
-    "react/no-unknown-property": 0
+    "react/prop-types": "off",
+    "react/no-unknown-property": "off"
   }
 }
