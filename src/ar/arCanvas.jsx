@@ -2,12 +2,9 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-pascal-case */
 
-import React from "react"
 import { Canvas, events } from "@react-three/fiber"
 
 import { AR } from "./ar"
-import { Grid } from "@react-three/drei"
-
 const eventManagerFactory = state => ({
   ...events(state),
 
@@ -35,9 +32,8 @@ const ARCanvas = ({
   ...props
 }) => (
   <Canvas
+    camera={arEnabled ? { position: [0, 0, 0] } : props.camera}
     events={eventManagerFactory}
-    // camera={arEnabled ? { position: [0, 0, 0] } : props.camera}
-    // camera={ { position: [0, 0, 0] } }
     {...props}>
     {arEnabled ? (
       <AR
