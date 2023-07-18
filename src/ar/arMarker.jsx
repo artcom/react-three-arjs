@@ -12,6 +12,7 @@ const ARMarker = ({
   barcodeValue,
   patternUrl,
   params,
+  debug,
   onMarkerFound,
   onMarkerLost,
 }) => {
@@ -56,7 +57,7 @@ const ARMarker = ({
   return (
     <group ref={markerRoot}>
       {children}
-      <axesHelper args={[0.5]} />
+      {debug && <axesHelper />}
     </group>
   )
 }
