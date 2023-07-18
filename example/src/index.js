@@ -1,8 +1,6 @@
 import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
-import React, { useState } from "react"
+import { useState } from "react"
 import { createRoot } from "react-dom/client"
-import { Stats } from "@react-three/drei"
-import { useThree } from "@react-three/fiber"
 
 function Box() {
   const [selected, setSelected] = useState(false)
@@ -17,17 +15,13 @@ function Box() {
 
 createRoot(document.getElementById("root")).render(
   <ARCanvas
-    gl={{ antialias: false, powerPreference: "default", physicallyCorrectLights: true }}
     onCameraStreamReady={() => console.log("Camera stream ready")}
     onCameraStreamError={() => console.error("Camera stream error")}
-    onCreated={({ gl }) => {
-      gl.setSize(window.innerWidth, window.innerHeight)
-    }}
-    sourceType={"image"}
-    sourceUrl={"data/hiro-marker-test.jpg"}>
+    sourceType={"webcam"}>
     <ambientLight />
     <pointLight position={[10, 10, 0]} intensity={10.0} />
     <ARMarker
+      debug={true}
       params={{ smooth: true }}
       type={"pattern"}
       patternUrl={"data/patt.hiro"}
