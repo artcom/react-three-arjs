@@ -9,7 +9,8 @@ npm i @artcom/react-three-arjs
 
 ## Usage
 
-Provide a [camera_para.dat](./example/data/camera_para.dat) file in your public folder, default path is `data/camera_para.dat`. See the [example](./example).
+* Provide a [camera_para.dat](./example/data/camera_para.dat) file in your public folder, default path is `data/camera_para.dat`.
+* Also put your used pattern files (e.g. hiro.patt) in your public folder. See the [example](./example).
 
 ```jsx
 import ReactDOM from "react-dom"
