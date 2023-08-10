@@ -1,18 +1,15 @@
 import { ARCanvas, ARMarker } from "@artcom/react-three-arjs"
 import React from "react"
 import { createRoot } from "react-dom/client"
+import { GLTFLoader  } from "three/examples/jsm/loaders/GLTFLoader"
+import { useLoader } from "@react-three/fiber";
 
-function Box() {
-  return (
-    <mesh
-      onClick={e => {
-        window.alert("click")
-        console.log(e)
-      }}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={"hotpink"} />
-    </mesh>
-  )
+function Model(props) {
+  const size = props.size ?? 1;
+  const gltf= useLoader(GLTFLoader, props.file);
+  return <primitive object={gltf.scene} 
+    position={props.pos ?? [0, 1, 0]}
+    scale={[size, size, size]}/>
 }
 
 createRoot(document.getElementById("root")).render(
@@ -20,19 +17,21 @@ createRoot(document.getElementById("root")).render(
     gl={{ antialias: false, powerPreference: "default", physicallyCorrectLights: true }}
     onCameraStreamReady={() => console.log("Camera stream ready")}
     onCameraStreamError={() => console.error("Camera stream error")}
+    detectionMode={"mono_and_matrix"}
+    matrixCodeType={"3x3_PARITY65"}
     onCreated={({ gl }) => {
       gl.setSize(window.innerWidth, window.innerHeight)
     }}>
-    <ambientLight />
-    <pointLight position={[10, 10, 0]} intensity={10.0} />
+    <ambientLight intensity={1}/>
     <ARMarker
-      params={{ smooth: true }}
-      type={"pattern"}
-      patternUrl={"data/patt.hiro"}
+      params={{ smooth: true, smoothThreshold: 1}}
+      type={"barcode"}
+      barcodeValue={0}
       onMarkerFound={() => {
         console.log("Marker Found")
       }}>
-      <Box />
+      <pointLight position={[5, 5, 0]} intensity={20.0} />
+      <Model file='data/gdsc/scene.gltf' pos={[0, 1, 0]}></Model>
     </ARMarker>
   </ARCanvas>,
 )
