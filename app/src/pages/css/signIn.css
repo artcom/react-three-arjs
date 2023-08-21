@@ -1,0 +1,25 @@
+body {
+    font: serif;
+    font-size: 10px;
+}
+
+
+.NavBar {
+    background-color: #e15e5e;
+    height: 5vh;
+    width: 100%;
+}
+
+.PageContent {
+    padding: 15px;
+}
+
+button {
+    height: 30px;
+    width: 100px;
+    background-color: #e15e5e;
+    border-radius: 0;
+    box-shadow: none;
+    color: white;
+
+}
