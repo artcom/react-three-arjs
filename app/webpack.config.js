@@ -16,7 +16,6 @@ module.exports = (_, { mode }) => ({
   },
   devServer: {
     host: "0.0.0.0",
-    hot: true,
     historyApiFallback: true
   },
   resolve: {

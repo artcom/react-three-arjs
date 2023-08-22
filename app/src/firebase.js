@@ -24,8 +24,4 @@ const auth  = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
-if (auth.currentUser) {
-    console.log("User logged in: " + auth.currentUser.displayName)
-}
-
 export {app, auth, provider, db}

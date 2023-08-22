@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cat in flowers
+* source:	https://sketchfab.com/3d-models/cat-in-flowers-3472121f05d14723951eb56ab8aee4d1
+* author:	anastasiaremezova (https://sketchfab.com/anastasiaremezova)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cat in flowers" (https://sketchfab.com/3d-models/cat-in-flowers-3472121f05d14723951eb56ab8aee4d1) by anastasiaremezova (https://sketchfab.com/anastasiaremezova) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

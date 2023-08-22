@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "watch": "webpack serve --hot --https --mode=development",
+    "watch": "webpack serve --https --mode=development",
     "build": "webpack --mode=production",
     "start": "http-server -S -C cert.pem dist/"
   },
