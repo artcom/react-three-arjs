@@ -1,6 +1,6 @@
 import React from 'react'
 import {auth, provider} from '../firebase';
-import { signInWithRedirect } from 'firebase/auth';
+import { signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
 import "./css/signIn.css"
 
 const signIn = () => {
@@ -29,7 +29,7 @@ function SignRules() {
           Sign in 
         </button>
         <button onClick={() => signOut()}>
-          Sign in 
+          Sign out 
         </button>
       </div>
     </div>
