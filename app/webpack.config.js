@@ -52,6 +52,10 @@ module.exports = (_, { mode }) => ({
           },
         ],
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
 })
